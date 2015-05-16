@@ -92,6 +92,39 @@ class linkedlist
 			System.out.println(temp.getData());
 			temp = temp.getNext();
 		}
+		System.out.println();
+	}
+
+	public void delete(int data)
+	{
+		node temp = head;
+		node prev = null;
+		
+		if(temp == null)
+		{
+			System.out.println("Linkedlist is empty.");
+		}
+
+		if(head.getData() == data && head.getNext() == null)
+		{
+			head = null;
+		}
+		else if(head.getData() == data && head.getNext() != null)
+		{
+			head = temp.getNext();
+			temp.setNext(null);
+		}
+		else
+		{
+			while(temp.getData() != data)
+			{
+				prev = temp;
+				temp = temp.getNext();
+			}
+			prev.setNext(temp.getNext());
+			temp.setNext(null);
+		}
+		System.out.println();
 	}
 }
 
@@ -107,6 +140,8 @@ class main
 		list.insertAtHead(4);
 		list.insertAtHead(5);
 		list.insertAfterNode(list.head,6);
+		list.print();
+		list.delete(5);
 		list.print();
 	}
 }
