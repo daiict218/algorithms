@@ -126,6 +126,15 @@ class linkedlist
 		}
 		System.out.println();
 	}
+
+	public int length(node n)
+	{
+		if(n == null)
+		{
+			return 0;
+		}
+		return 1 + length(n.getNext());
+	}
 }
 
 class main
@@ -141,7 +150,9 @@ class main
 		list.insertAtHead(5);
 		list.insertAfterNode(list.head,6);
 		list.print();
+		System.out.println(list.length(list.head));
 		list.delete(5);
 		list.print();
+		System.out.println(list.length(list.head));
 	}
 }
