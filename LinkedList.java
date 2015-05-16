@@ -17,7 +17,7 @@ class node
 	
 	public int getData()
 	{
-		return this.data;
+		return data;
 	}
 
 	public void setNext(node n)
@@ -27,7 +27,7 @@ class node
 	
 	public node getNext()
 	{
-		return this.next;
+		return next;
 	}
 }
 
