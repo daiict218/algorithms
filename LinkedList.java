@@ -152,6 +152,21 @@ class linkedlist
 			n.setNext(null);
 		return temp1;
 	}
+	
+	public node deleteAlternate(node n)
+	{
+		if(n.getNext() == null)
+		{
+			return n;
+		}
+		if(n.getNext().getNext() == null)
+		{
+			n.setNext(null);
+			return n;
+		}
+		n.setNext(deleteAlternate(n.getNext().getNext()));
+		return n;
+	}
 }
 
 class main
@@ -160,6 +175,7 @@ class main
 	{
 		Scanner input = new Scanner(System.in);
 		linkedlist list = new linkedlist();
+		list.insertAtEnd(10);
 		list.insertAtEnd(1);
 		list.insertAtEnd(2);
 		list.insertAtEnd(3);
@@ -171,13 +187,14 @@ class main
 		//list.delete(5);
 		//list.print();
 		//System.out.println(list.length(list.head));
-		list.head = list.ReversePair(list.head);
+//		list.head = list.ReversePair(list.head);
 //		System.out.println(list.head.data);
 //		System.out.println(list.head.next.data);
 //		System.out.println(list.head.next.next.data);
 //		System.out.println(list.head.next.next.next.data);
 //		System.out.println(list.head.next.next.next.next.data);
 //		System.out.println(list.head.next.next.next.next.next.data);
+		list.head = list.deleteAlternate(list.head);
 		list.print();
 	}
 }
