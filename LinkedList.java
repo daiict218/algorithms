@@ -135,6 +135,23 @@ class linkedlist
 		}
 		return 1 + length(n.getNext());
 	}
+
+	public node ReversePair(node n)
+	{
+		if(n.getNext() == null || n == null)
+		{
+			return n;
+		}
+		node temp1 = n.getNext();
+		node temp = n.getNext().getNext();
+		n.getNext().setNext(n);
+	//	System.out.println(temp);
+		if(temp != null)
+			n.setNext(ReversePair(temp));
+		else
+			n.setNext(null);
+		return temp1;
+	}
 }
 
 class main
@@ -150,9 +167,17 @@ class main
 		list.insertAtHead(5);
 		list.insertAfterNode(list.head,6);
 		list.print();
-		System.out.println(list.length(list.head));
-		list.delete(5);
+		//System.out.println(list.length(list.head));
+		//list.delete(5);
+		//list.print();
+		//System.out.println(list.length(list.head));
+		list.head = list.ReversePair(list.head);
+//		System.out.println(list.head.data);
+//		System.out.println(list.head.next.data);
+//		System.out.println(list.head.next.next.data);
+//		System.out.println(list.head.next.next.next.data);
+//		System.out.println(list.head.next.next.next.next.data);
+//		System.out.println(list.head.next.next.next.next.next.data);
 		list.print();
-		System.out.println(list.length(list.head));
 	}
 }
